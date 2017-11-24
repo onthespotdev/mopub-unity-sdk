@@ -24,6 +24,15 @@ validate
 xcrun xcodebuild GCC_PREPROCESSOR_DEFINITIONS="MP_FABRIC=1" -project mopub-ios-sdk-unity/mopub-ios-sdk-unity.xcodeproj -scheme "MoPub for Unity" OTHER_CFLAGS="-fembed-bitcode -w" -destination generic/platform=iphoneos build
 validate
 
+mv mopub-ios-sdk-unity/bin mopub-ios-sdk-unity/bin-iphoneos
+
+xcrun xcodebuild -project mopub-ios-sdk-unity/mopub-ios-sdk-unity.xcodeproj -scheme "MoPub for Unity" -destination generic/platform=iphonesimulator -sdk iphonesimulator clean
+validate
+xcrun xcodebuild GCC_PREPROCESSOR_DEFINITIONS="MP_FABRIC=1" -project mopub-ios-sdk-unity/mopub-ios-sdk-unity.xcodeproj -scheme "MoPub for Unity" OTHER_CFLAGS="-fembed-bitcode -w" -destination generic/platform=iphonesimulator -sdk iphonesimulator build
+validate
+
+mv mopub-ios-sdk-unity/bin mopub-ios-sdk-unity/bin-iphonesimulator
+
 # after build, undo the unity suffix
 cd mopub-ios-sdk
 git checkout MoPubSDK/MPConstants.h
@@ -36,9 +45,11 @@ cd ..
 # Due to the treatment of .js files as source code in unity, we must change the extension. The extension gets changed back by the ios post build script within
 # the unity plugin. The end result is an xcode project that contains 'mraid.js'. This removes the need to change the hard-coded extension in the ios sdk.
 
-cp mopub-ios-sdk-unity/bin/libmopub-ios-sdk-unity.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libmopub-ios-sdk-unity.a
+# cp mopub-ios-sdk-unity/bin/libmopub-ios-sdk-unity.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libmopub-ios-sdk-unity.a
+libtool -static -o unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libmopub-ios-sdk-unity.a mopub-ios-sdk-unity/bin-iphoneos/libmopub-ios-sdk-unity.a mopub-ios-sdk-unity/bin-iphonesimulator/libmopub-ios-sdk-unity.a
 validate
-cp mopub-ios-sdk-unity/bin/libMoPubSDK.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a
+# cp mopub-ios-sdk-unity/bin/libMoPubSDK.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a
+libtool -static -o unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a mopub-ios-sdk-unity/bin-iphoneos/libMoPubSDK.a mopub-ios-sdk-unity/bin-iphonesimulator/libMoPubSDK.a
 validate
 cp -f mopub-ios-sdk/MoPubSDK/Resources/*.{html,png} unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
 validate
