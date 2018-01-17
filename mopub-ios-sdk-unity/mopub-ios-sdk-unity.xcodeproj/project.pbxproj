@@ -14,7 +14,6 @@
 				1832FFEC1CBD39810065521D /* CopyFiles */,
 			);
 			dependencies = (
-				414834A31FE084F500709AD6 /* PBXTargetDependency */,
 				1832FFE91CBD331D0065521D /* PBXTargetDependency */,
 				1832FFEB1CBD33200065521D /* PBXTargetDependency */,
 			);
@@ -26,7 +25,6 @@
 /* Begin PBXBuildFile section */
 		1832FFED1CBD39860065521D /* libMoPubSDK.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1832FF891CBC18C10065521D /* libMoPubSDK.a */; };
 		1832FFEE1CBD39890065521D /* libmopub-ios-sdk-unity.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D208F0D1CAD6A2100F2C8F0 /* libmopub-ios-sdk-unity.a */; };
-		414834C01FE08AF500709AD6 /* MoPub.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1832FF931CBC18C10065521D /* MoPub.bundle */; };
 		4D208F1C1CAD6A6000F2C8F0 /* MoPubBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D208F191CAD6A6000F2C8F0 /* MoPubBinding.m */; };
 		4D208F1D1CAD6A6000F2C8F0 /* MoPubManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D208F1B1CAD6A6000F2C8F0 /* MoPubManager.mm */; };
 /* End PBXBuildFile section */
@@ -74,13 +72,6 @@
 			remoteGlobalIDString = 4D208F0C1CAD6A2100F2C8F0;
 			remoteInfo = "mopub-ios-sdk-unity";
 		};
-		414834A21FE084F500709AD6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1832FF6F1CBC18C10065521D /* MoPubSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 570A005A19D6206800065388;
-			remoteInfo = MoPubResources;
-		};
 		414834A91FE084F500709AD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1832FF6F1CBC18C10065521D /* MoPubSDK.xcodeproj */;
@@ -104,7 +95,6 @@
 			dstPath = "$(SRCROOT)/bin";
 			dstSubfolderSpec = 0;
 			files = (
-				414834C01FE08AF500709AD6 /* MoPub.bundle in CopyFiles */,
 				1832FFED1CBD39860065521D /* libMoPubSDK.a in CopyFiles */,
 				1832FFEE1CBD39890065521D /* libmopub-ios-sdk-unity.a in CopyFiles */,
 			);
@@ -298,11 +288,6 @@
 			isa = PBXTargetDependency;
 			target = 4D208F0C1CAD6A2100F2C8F0 /* mopub-ios-sdk-unity */;
 			targetProxy = 1832FFEA1CBD33200065521D /* PBXContainerItemProxy */;
-		};
-		414834A31FE084F500709AD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MoPubResources;
-			targetProxy = 414834A21FE084F500709AD6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

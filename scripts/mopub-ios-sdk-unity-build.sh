@@ -51,8 +51,8 @@ validate
 # cp mopub-ios-sdk-unity/bin/libMoPubSDK.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a
 libtool -static -o unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a mopub-ios-sdk-unity/bin-iphoneos/libMoPubSDK.a mopub-ios-sdk-unity/bin-iphonesimulator/libMoPubSDK.a
 validate
-cp -r mopub-ios-sdk-unity/bin/MoPub.bundle/ unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
-validate
+# cp -r mopub-ios-sdk-unity/bin/MoPub.bundle/ unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
+# validate
 cp -f mopub-ios-sdk/MoPubSDK/Resources/*.{html,png} unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
 validate
 mv unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/MRAID.bundle/mraid.js unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/MRAID.bundle/mraid.js.prevent_unity_compilation
